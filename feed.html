@@ -1,0 +1,34 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram Feed</title>
+  <link rel="stylesheet" type="text/css" href="FeedStyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type='text/javascript' src='feed.js'></script>
+</head>
+<body>
+	
+  <nav>
+    <h1>Instagram Header Nav Bar</h1>
+  </nav>
+
+  <h2>Content goes under here. Try loading</h2>
+  <button class = "retrieve">Click Here To Get Data</button>
+  <button class = "post">Click Here To Post a Picture</button>
+
+  <div id="feed">
+    
+  </div>
+
+  <div>
+    <form method = "post" name ="comment-form" onsubmit="return false" class = "comment-form" id="">
+        <input type="text" name="comment-input" class="comment-input"
+            placeholder = "Add a comment..."/>
+        <input type="submit" name = "post-comment" class='post-comment' value = "Post">
+    </form>
+</div>
+
+
+</body>
+</html>
