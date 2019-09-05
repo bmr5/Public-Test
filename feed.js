@@ -33,6 +33,14 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>`
+
+    let onSubmitComment = function(){
+        console.log($(this))
+        $(this).append( '<p></p>')
+        let inputVal = $(this).children('input').first().val()
+        $(this).children('p').last().text(inputVal)
+        $(this).find("input[type=text]").val('');
+    }
         
     $(".retrieve").click(function(){
         $.get('https://image-server-codesmith.firebaseapp.com/images',
@@ -47,7 +55,7 @@ $(document).ready(function(){
     })
     
     $(".post").click(function(){
-
+        
         for (var i=0; i<storage.length; i++) {
             $('#feed').append(imageBox)
             $('#feed > div > img').last().attr('id', "image" + i)
@@ -56,18 +64,12 @@ $(document).ready(function(){
                 $(this).parent().remove()
             })
             $('#feed > div > div > form').last().children().first().attr('id', "comment-input" + i)
-            
+            $('.feed-box').last().find('.comment-form').on('submit', onSubmitComment)
         }
     })
 
 
-    $(".comment-form").on('submit', function(){
-        console.log($(this))
-        $(this).append( '<p></p>')
-        let inputVal = $(this).children('input').first().val()
-        $(this).children('p').last().text(inputVal)
-        $(this).find("input[type=text]").val('');
-    })
+    $(".comment-form").on('submit', onSubmitComment)
     
 
 })
